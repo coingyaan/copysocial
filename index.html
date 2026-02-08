@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LinkedIn Post Copier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      background: #f4f6f8;
+      padding: 40px;
+    }
+    .card {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      font-size: 15px;
+    }
+    textarea {
+      min-height: 220px;
+    }
+    button {
+      background: #0a66c2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    button.secondary {
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>🔗 LinkedIn Post Copier</h2>
+    <p>Paste a public LinkedIn post URL</p>
+
+    <input id="url" placeholder="https://www.linkedin.com/posts/..." />
+    <button onclick="extract()">Extract Post</button>
+
+    <textarea id="output" placeholder="Post text will appear here..."></textarea>
+    <button class="secondary" onclick="copyText()">Copy Text</button>
+
+    <p style="font-size:12px;color:#666;margin-top:12px;">
+      Works only for public LinkedIn posts.
+    </p>
+  </div>
+
+<script>
+async function extract() {
+  const url = document.getElementById("url").value
+  const output = document.getElementById("output")
+
+  if (!url) {
+    alert("Paste a LinkedIn post URL")
+    return
+  }
+
+  output.value = "Extracting..."
+
+  const res = await fetch(
+    "https://linkedin-post-extractor.igadgetgyaan.workers.dev/?url=" +
+    encodeURIComponent(url)
+  )
+
+  const data = await res.json()
+  output.value = data.content || data.error
+}
+
+function copyText() {
+  navigator.clipboard.writeText(
+    document.getElementById("output").value
+  )
+  alert("Copied to clipboard ✅")
+}
+</script>
+
+</body>
+</html>
