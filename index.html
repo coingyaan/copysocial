@@ -13,7 +13,7 @@
   <meta name="author" content="CopySocial" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Open Graph (LinkedIn, Facebook, WhatsApp) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="CopySocial – Free Social Media Text Copier" />
   <meta property="og:description" content="Copy text from LinkedIn, X, and Instagram posts instantly. Free tool for creators, recruiters, and marketers." />
   <meta property="og:image" content="https://copysocial.co/assets/images/seo/og-image-1200x630-proper-spacing.png" />
@@ -30,35 +30,99 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/05-favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon/07-favicon-64x64.png" />
   <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/favicon/09-favicon-256x256.png" />
-
-  <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/10-apple-touch-icon-180x180.png" />
+
+  <!-- ✅ REQUIRED CSS (THIS FIXES EVERYTHING) -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 40px 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .secondary {
+      background: #e5e7eb;
+      color: #111;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
+
   <div class="card">
+
     <div style="text-align:right;margin-bottom:10px;">
-  <button 
-    onclick="resetPage()" 
-    style="background:none;border:none;font-size:16px;cursor:pointer;">
-    🏠 Home
-  </button>
-</div>
+      <button onclick="resetPage()" style="background:none;border:none;font-size:16px;cursor:pointer;">
+        🏠 Home
+      </button>
+    </div>
 
     <h1>🔗 LinkedIn Post Copier</h1>
     <p class="subtitle">Paste a public LinkedIn post URL</p>
 
-    <input 
-      id="url" 
-      placeholder="https://www.linkedin.com/posts/..." 
-    />
+    <input id="url" placeholder="https://www.linkedin.com/posts/..." />
 
     <button class="primary" onclick="extractPost()">Extract Post</button>
 
-    <textarea 
-      id="output" 
-      placeholder="Post text will appear here..."
-    ></textarea>
+    <textarea id="output" placeholder="Post text will appear here..."></textarea>
 
     <button class="secondary" onclick="copyText()">Copy Text</button>
 
@@ -68,55 +132,54 @@
 
     <div style="margin-top:20px;font-size:14px;color:#444;line-height:1.6;">
       <strong>Free LinkedIn Post Copier</strong><br>
-      This free LinkedIn Post Copier lets you extract text from public LinkedIn posts.
-      Perfect for creators, recruiters, marketers, and researchers.
+      Extract text from public LinkedIn posts. Built for creators, recruiters, and marketers.
     </div>
 
     <footer>
-      Built by 
-      <a href="https://www.linkedin.com/in/moneshkumar" target="_blank">
-        Monesh Kumar
-      </a>
+      Built by
+      <a href="https://www.linkedin.com/in/moneshkumar" target="_blank">Monesh Kumar</a>
     </footer>
+
   </div>
 
+  <!-- JS (UNCHANGED) -->
   <script>
-  async function extractPost() {
-    const url = document.getElementById("url").value;
-    const output = document.getElementById("output");
+    async function extractPost() {
+      const url = document.getElementById("url").value;
+      const output = document.getElementById("output");
 
-    if (!url) {
-      alert("Please paste a LinkedIn post URL");
-      return;
+      if (!url) {
+        alert("Please paste a LinkedIn post URL");
+        return;
+      }
+
+      output.value = "Extracting...";
+
+      try {
+        const res = await fetch(
+          "https://linkedin-post-extractor.igadgetgyaan.workers.dev/?url=" +
+          encodeURIComponent(url)
+        );
+        const data = await res.json();
+        output.value = data.content || data.error;
+      } catch (err) {
+        output.value = "Something went wrong. Please try again.";
+      }
     }
 
-    output.value = "Extracting...";
-
-    try {
-      const res = await fetch(
-        "https://linkedin-post-extractor.igadgetgyaan.workers.dev/?url=" +
-        encodeURIComponent(url)
-      );
-      const data = await res.json();
-      output.value = data.content || data.error;
-    } catch (err) {
-      output.value = "Something went wrong. Please try again.";
+    function copyText() {
+      const output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      alert("Copied to clipboard ✅");
     }
-  }
 
-  function copyText() {
-    const output = document.getElementById("output");
-    output.select();
-    document.execCommand("copy");
-    alert("Copied to clipboard ✅");
-  }
-
-  function resetPage() {
-    document.getElementById("url").value = "";
-    document.getElementById("output").value = "";
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-</script>
+    function resetPage() {
+      document.getElementById("url").value = "";
+      document.getElementById("output").value = "";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
 
 </body>
 </html>
