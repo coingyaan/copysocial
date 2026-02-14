@@ -4,25 +4,22 @@
   <meta charset="UTF-8" />
 
   <!-- Primary SEO -->
-  <title>CopySocial – Free Social Media Text Copier for LinkedIn, X & Instagram</title>
-
+  <title>CopySocial – Free Social Media Post Copier</title>
   <meta name="description" content="CopySocial is a free tool to copy text from LinkedIn posts, X threads, and Instagram captions instantly. Built for creators, recruiters, and marketers." />
-
-  <meta name="keywords" content="copy social media text, LinkedIn post copier, X thread copier, Twitter text extractor, Instagram caption copier, social media tools" />
-
+  <meta name="keywords" content="LinkedIn post copier, X thread copier, Twitter text extractor, Instagram caption copier, social media text copier" />
   <meta name="author" content="CopySocial" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="CopySocial – Free Social Media Text Copier" />
+  <meta property="og:title" content="CopySocial – Free Social Media Post Copier" />
   <meta property="og:description" content="Copy text from LinkedIn, X, and Instagram posts instantly. Free tool for creators, recruiters, and marketers." />
   <meta property="og:image" content="https://copysocial.co/assets/images/seo/og-image-1200x630-proper-spacing.png" />
   <meta property="og:url" content="https://copysocial.co" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter / X Card -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CopySocial – Free Social Media Text Copier" />
+  <meta name="twitter:title" content="CopySocial – Free Social Media Post Copier" />
   <meta name="twitter:description" content="Instantly copy text from LinkedIn, X, and Instagram posts. Free forever." />
   <meta name="twitter:image" content="https://copysocial.co/assets/images/seo/og-image-1200x630-proper-spacing.png" />
 
@@ -32,52 +29,64 @@
   <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/favicon/09-favicon-256x256.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/10-apple-touch-icon-180x180.png" />
 
-  <!-- ✅ REQUIRED CSS (THIS FIXES EVERYTHING) -->
+  <!-- Styles -->
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f5f7fa;
       margin: 0;
       padding: 40px 16px;
+      display: flex;
+      justify-content: center;
     }
 
     .card {
       background: #ffffff;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 24px;
+      max-width: 620px;
+      width: 100%;
+      padding: 28px;
       border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .logo img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 20px;
     }
 
     h1 {
-      margin-top: 0;
-      font-size: 24px;
+      font-size: 22px;
+      margin-bottom: 6px;
     }
 
     .subtitle {
       color: #666;
-      margin-bottom: 16px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+      margin-bottom: 20px;
       font-size: 14px;
     }
 
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
     textarea {
-      min-height: 120px;
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      margin-top: 12px;
+      font-size: 14px;
     }
 
     button {
       padding: 10px 14px;
+      font-size: 14px;
       border-radius: 6px;
       border: none;
-      font-size: 14px;
       cursor: pointer;
     }
 
@@ -89,13 +98,14 @@
 
     .secondary {
       background: #e5e7eb;
-      color: #111;
+      margin-top: 10px;
     }
 
     footer {
-      margin-top: 24px;
+      margin-top: 22px;
       font-size: 13px;
       color: #555;
+      text-align: center;
     }
 
     footer a {
@@ -109,16 +119,17 @@
 
   <div class="card">
 
-    <div style="text-align:right;margin-bottom:10px;">
-      <button onclick="resetPage()" style="background:none;border:none;font-size:16px;cursor:pointer;">
-        🏠 Home
-      </button>
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/assets/images/logo/header-800x200-transparent.png" alt="CopySocial Logo">
     </div>
 
-    <h1>🔗 LinkedIn Post Copier</h1>
-    <p class="subtitle">Paste a public LinkedIn post URL</p>
+    <!-- Heading -->
+    <h1>Social Media Post Copier</h1>
+    <p class="subtitle">Copy text from public LinkedIn, X & Instagram posts</p>
 
-    <input id="url" placeholder="https://www.linkedin.com/posts/..." />
+    <!-- Tool -->
+    <input id="url" placeholder="Paste LinkedIn post URL here..." />
 
     <button class="primary" onclick="extractPost()">Extract Post</button>
 
@@ -126,30 +137,33 @@
 
     <button class="secondary" onclick="copyText()">Copy Text</button>
 
-    <p style="font-size:12px;color:#666;margin-top:12px;">
-      Works only for public LinkedIn posts.
+    <p style="font-size:12px;color:#666;margin-top:10px;">
+      Works only for public posts.
     </p>
 
-    <div style="margin-top:20px;font-size:14px;color:#444;line-height:1.6;">
-      <strong>Free LinkedIn Post Copier</strong><br>
-      Extract text from public LinkedIn posts. Built for creators, recruiters, and marketers.
+    <div style="margin-top:16px;font-size:14px;color:#444;line-height:1.6;">
+      <strong>Free Social Media Post Copier</strong><br>
+      CopySocial helps creators, recruiters, and marketers quickly copy text from public social media posts.
     </div>
 
+    <!-- Footer -->
     <footer>
       Built by
-      <a href="https://www.linkedin.com/in/moneshkumar" target="_blank">Monesh Kumar</a>
+      <a href="https://www.linkedin.com/in/moneshkumar" target="_blank">
+        Monesh Kumar
+      </a>
     </footer>
 
   </div>
 
-  <!-- JS (UNCHANGED) -->
+  <!-- Script -->
   <script>
     async function extractPost() {
       const url = document.getElementById("url").value;
       const output = document.getElementById("output");
 
       if (!url) {
-        alert("Please paste a LinkedIn post URL");
+        alert("Please paste a post URL");
         return;
       }
 
@@ -172,12 +186,6 @@
       output.select();
       document.execCommand("copy");
       alert("Copied to clipboard ✅");
-    }
-
-    function resetPage() {
-      document.getElementById("url").value = "";
-      document.getElementById("output").value = "";
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>
 
