@@ -1,0 +1,94 @@
+/* Global Theme */
+
+body{
+font-family:Arial, sans-serif;
+background:#0f172a;
+color:#e2e8f0;
+margin:0;
+padding:0;
+}
+
+/* Container */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* Header */
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
+background:#020617;
+border-bottom:1px solid #1e293b;
+}
+
+.nav nav a{
+margin-left:25px;
+text-decoration:none;
+color:#cbd5f5;
+font-size:15px;
+}
+
+.nav nav a:hover{
+color:#22c55e;
+}
+
+.logo img{
+height:36px;
+}
+
+/* Cards */
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+margin-top:30px;
+box-shadow:0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* Buttons */
+
+.btn{
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+.btn:hover{
+background:#1d4ed8;
+}
+
+/* Footer */
+
+.footer{
+margin-top:80px;
+padding:30px 20px;
+text-align:center;
+border-top:1px solid #1e293b;
+font-size:14px;
+color:#94a3b8;
+}
+
+.footer-links{
+margin-top:10px;
+}
+
+.footer-links a{
+margin:0 10px;
+color:#cbd5f5;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#22c55e;
+}
