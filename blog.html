@@ -53,21 +53,21 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .subtitle { font-size: 1.25rem; color: var(--gray); max-width: 700px; margin: 0 auto; }
         
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem; margin-top: 3rem; }
+        .blog-grid { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
         .blog-card { background: var(--white); border-radius: 16px; overflow: hidden;
             box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none; display: block; }
+            text-decoration: none; display: flex; flex-direction: row; height: 220px; }
         .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .blog-card-image { width: 100%; height: 200px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-        .blog-card-content { padding: 1.5rem; }
+        .blog-card-image { width: 280px; min-width: 280px; height: 220px; 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .blog-card-content { padding: 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .blog-card-meta { display: flex; gap: 1rem; font-size: 0.875rem; color: var(--gray);
             margin-bottom: 1rem; flex-wrap: wrap; }
-        .blog-card-title { font-size: 1.35rem; font-weight: 700; color: var(--dark);
+        .blog-card-title { font-size: 1.5rem; font-weight: 700; color: var(--dark);
             margin-bottom: 0.75rem; line-height: 1.3; }
-        .blog-card-excerpt { color: var(--gray); font-size: 0.95rem; line-height: 1.6;
-            margin-bottom: 1rem; }
+        .blog-card-excerpt { color: var(--gray); font-size: 1rem; line-height: 1.6;
+            margin-bottom: 1rem; flex: 1; }
         .read-more { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
         .read-more:hover { text-decoration: underline; }
         
@@ -80,8 +80,13 @@
         .footer-section a:hover { color: var(--primary); }
         .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem;
             border-top: 1px solid #334155; text-align: center; color: #94A3B8; }
-        @media (max-width: 768px) { h1 { font-size: 2rem; } nav { gap: 1rem; }
-            .blog-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            h1 { font-size: 2rem; } 
+            nav { gap: 1rem; }
+            .blog-card { flex-direction: column; height: auto; }
+            .blog-card-image { width: 100%; min-width: 100%; height: 180px; font-size: 3rem; }
+            .blog-card-content { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -109,32 +114,20 @@
             <a href="/blog/how-to-copy-text-from-linkedin-mobile-app" class="blog-card">
                 <div class="blog-card-image">📱</div>
                 <div class="blog-card-content">
-                    <div class="blog-card-meta">
-                        <span>📅 March 2026</span>
-                        <span>⏱️ 8 min read</span>
+                    <div>
+                        <div class="blog-card-meta">
+                            <span>📅 March 2026</span>
+                            <span>⏱️ 8 min read</span>
+                        </div>
+                        <h2 class="blog-card-title">How to Copy Text from LinkedIn Mobile App (3 Easy Methods 2026)</h2>
+                        <p class="blog-card-excerpt">Can't copy text from LinkedIn mobile app? Learn 3 easy methods to extract text from LinkedIn app posts. Free tool works on iPhone and Android.</p>
                     </div>
-                    <h2 class="blog-card-title">How to Copy Text from LinkedIn Mobile App (3 Easy Methods 2026)</h2>
-                    <p class="blog-card-excerpt">Can't copy text from LinkedIn mobile app? Learn 3 easy methods to extract text from LinkedIn app posts. Free tool works on iPhone and Android.</p>
                     <span class="read-more">Read More →</span>
                 </div>
             </a>
 
             <!-- Add more blog posts here as cards -->
             <!-- When you publish a new post, add it at the TOP (before this comment) -->
-            <!-- Example format:
-            <a href="/blog/your-new-post-url" class="blog-card">
-                <div class="blog-card-image">🔥</div>
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">
-                        <span>📅 April 2026</span>
-                        <span>⏱️ 10 min read</span>
-                    </div>
-                    <h2 class="blog-card-title">Your Post Title Here</h2>
-                    <p class="blog-card-excerpt">Short description of your post...</p>
-                    <span class="read-more">Read More →</span>
-                </div>
-            </a>
-            -->
         </div>
     </div>
 
