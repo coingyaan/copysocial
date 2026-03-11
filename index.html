@@ -27,9 +27,9 @@
     <meta name="twitter:image" content="https://copysocial.co/og-image-1200x630-proper-spacing.png">
     
     <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/05-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon/06-favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/10-apple-touch-icon-180x180.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,12 +37,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXY9ZZ543X"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PX3NG53P08"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-DXY9ZZ543X');
+      gtag('config', 'G-PX3NG53P08');
     </script>
     
     <!-- Schema.org JSON-LD -->
@@ -122,46 +122,8 @@
             color: var(--dark);
         }
         
-        .logo-icon {
-            width: 40px;
+        .logo img {
             height: 40px;
-            background: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .logo-icon::before,
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            background: var(--white);
-            border-radius: 4px;
-        }
-        
-        .logo-icon::before {
-            width: 16px;
-            height: 16px;
-            top: 8px;
-            left: 8px;
-        }
-        
-        .logo-icon::after {
-            width: 14px;
-            height: 14px;
-            top: 12px;
-            left: 12px;
-            opacity: 0.6;
-            border: 2px solid var(--white);
-            background: transparent;
-        }
-        
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
         }
         
         nav {
@@ -287,7 +249,8 @@
             color: var(--dark);
         }
         
-        input[type="url"] {
+        input[type="url"],
+        input[type="text"] {
             width: 100%;
             padding: 1rem;
             border: 2px solid #E2E8F0;
@@ -297,7 +260,8 @@
             font-family: 'Inter', sans-serif;
         }
         
-        input[type="url"]:focus {
+        input[type="url"]:focus,
+        input[type="text"]:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
@@ -482,6 +446,17 @@
             color: #94A3B8;
         }
         
+        .coming-soon {
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -514,12 +489,11 @@
     <header>
         <div class="header-content">
             <a href="/" class="logo">
-                <div class="logo-icon"></div>
-                <span class="logo-text">CopySocial</span>
+                <img src="/assets/images/logo/header-800x200-transparent.png" alt="CopySocial Logo">
             </a>
             <nav>
-                <a href="/about">About</a>
                 <a href="/blog">Blog</a>
+                <a href="/about">About</a>
                 <a href="/contact">Contact</a>
             </nav>
         </div>
@@ -548,7 +522,7 @@
             <h2>Copy LinkedIn Post Text</h2>
             <div class="input-group">
                 <label for="linkedin-url">Paste LinkedIn Post URL</label>
-                <input type="url" id="linkedin-url" placeholder="https://www.linkedin.com/posts/..." />
+                <input type="text" id="linkedin-url" placeholder="https://www.linkedin.com/posts/..." />
                 <p class="example-text">Example: https://www.linkedin.com/posts/username_activity-1234567890</p>
             </div>
             <button class="btn-primary" onclick="extractLinkedInPost()">Extract Text</button>
@@ -556,7 +530,7 @@
             <div id="linkedin-result" class="result-box">
                 <div class="result-header">
                     <span class="result-label">Extracted Text:</span>
-                    <button class="copy-btn" onclick="copyToClipboard('linkedin')">Copy</button>
+                    <button class="copy-btn" onclick="copyLinkedInText()">Copy</button>
                 </div>
                 <div id="linkedin-text" class="extracted-text"></div>
             </div>
@@ -567,18 +541,18 @@
             <h2>Extract Twitter/X Thread</h2>
             <div class="input-group">
                 <label for="twitter-url">Paste Tweet or Thread URL</label>
-                <input type="url" id="twitter-url" placeholder="https://twitter.com/user/status/..." />
+                <input type="text" id="twitter-url" placeholder="https://twitter.com/user/status/..." />
                 <p class="example-text">Example: https://twitter.com/username/status/1234567890 or https://x.com/username/status/1234567890</p>
             </div>
-            <button class="btn-primary" onclick="extractTwitterThread()">Extract Thread</button>
+            <button class="btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
+                Extract Thread
+            </button>
             
-            <div id="twitter-result" class="result-box">
-                <div class="result-header">
-                    <span class="result-label">Extracted Thread:</span>
-                    <button class="copy-btn" onclick="copyToClipboard('twitter')">Copy All</button>
-                </div>
-                <div id="twitter-text" class="extracted-text"></div>
-            </div>
+            <span class="coming-soon">🚧 Coming Soon</span>
+            
+            <p style="margin-top: 1rem; color: var(--gray); font-size: 0.95rem;">
+                Twitter/X thread extraction is currently in development. Subscribe to our blog for updates!
+            </p>
         </div>
     </div>
 
@@ -593,13 +567,13 @@
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3 class="feature-title">Instant Extraction</h3>
-                <p class="feature-desc">Copy text from LinkedIn posts and Twitter threads in seconds. Just paste the URL and click extract.</p>
+                <p class="feature-desc">Copy text from LinkedIn posts in seconds. Just paste the URL and click extract.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h3 class="feature-title">No Login Required</h3>
-                <p class="feature-desc">Works without any registration or LinkedIn/Twitter login. Your privacy is protected.</p>
+                <p class="feature-desc">Works without any registration or LinkedIn login. Your privacy is protected.</p>
             </div>
             
             <div class="feature-card">
@@ -623,7 +597,7 @@
             <div class="feature-card">
                 <div class="feature-icon">🚀</div>
                 <h3 class="feature-title">Save Time</h3>
-                <p class="feature-desc">Stop manually copying text piece by piece. Extract entire posts or threads with one click.</p>
+                <p class="feature-desc">Stop manually copying text piece by piece. Extract entire posts with one click.</p>
             </div>
         </div>
     </section>
@@ -639,7 +613,7 @@
             <div class="footer-section">
                 <h3>Tools</h3>
                 <a href="/">LinkedIn Post Copier</a>
-                <a href="/">Twitter Thread Reader</a>
+                <a href="/">Twitter Thread Reader (Soon)</a>
                 <a href="/blog">How-To Guides</a>
             </div>
             
@@ -658,7 +632,8 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 CopySocial. All rights reserved. Built by <a href="https://coingyaan.com" style="color: var(--primary);">CoinGyaan</a></p>
+            <p>Built by <a href="https://www.linkedin.com/in/moneshkumar" target="_blank" style="color: var(--primary);">Monesh Kumar ❤️</a></p>
+            <p style="margin-top: 0.5rem;">&copy; 2026 CopySocial. All rights reserved.</p>
         </div>
     </footer>
 
@@ -678,73 +653,63 @@
             document.getElementById(tool + '-tool').classList.add('active');
         }
 
-        // LinkedIn Post Extraction
+        // LinkedIn Post Extraction (YOUR WORKING CODE)
         async function extractLinkedInPost() {
             const url = document.getElementById('linkedin-url').value.trim();
             const resultBox = document.getElementById('linkedin-result');
             const textDiv = document.getElementById('linkedin-text');
             
             if (!url) {
-                alert('Please enter a LinkedIn post URL');
-                return;
-            }
-            
-            if (!url.includes('linkedin.com/posts/')) {
-                alert('Please enter a valid LinkedIn post URL');
+                alert('Please paste a LinkedIn post URL');
                 return;
             }
             
             // Show loading
-            textDiv.innerHTML = 'Extracting post text...';
+            textDiv.innerHTML = 'Extracting...';
             resultBox.classList.add('show');
             
             try {
-                // TODO: Add your existing LinkedIn extraction logic here
-                // Replace this placeholder with your working code
-                setTimeout(() => {
-                    textDiv.innerHTML = 'LinkedIn post extraction will be implemented here.\n\nReplace this with your working extraction code.';
-                }, 1000);
-            } catch (error) {
-                textDiv.innerHTML = 'Error extracting post. Please check the URL and try again.';
+                const res = await fetch(
+                    "https://linkedin-post-extractor.igadgetgyaan.workers.dev/?url=" + encodeURIComponent(url)
+                );
+                
+                const data = await res.json();
+                textDiv.innerHTML = data.content || data.error || 'Could not extract post text';
+                
+            } catch (err) {
+                textDiv.innerHTML = 'Something went wrong. Please try again.';
             }
         }
 
-        // Twitter Thread Extraction
-        async function extractTwitterThread() {
-            const url = document.getElementById('twitter-url').value.trim();
-            const resultBox = document.getElementById('twitter-result');
-            const textDiv = document.getElementById('twitter-text');
-            
-            if (!url) {
-                alert('Please enter a Twitter/X URL');
-                return;
-            }
-            
-            if (!url.includes('twitter.com') && !url.includes('x.com')) {
-                alert('Please enter a valid Twitter/X URL');
-                return;
-            }
-            
-            // Show loading
-            textDiv.innerHTML = 'Extracting thread...';
-            resultBox.classList.add('show');
-            
-            try {
-                // TODO: Implement Twitter thread extraction logic
-                setTimeout(() => {
-                    textDiv.innerHTML = 'Twitter thread extraction will be implemented here.\n\nThis is a placeholder for the new feature.';
-                }, 1000);
-            } catch (error) {
-                textDiv.innerHTML = 'Error extracting thread. Please check the URL and try again.';
-            }
-        }
-
-        // Copy to Clipboard
-        function copyToClipboard(tool) {
-            const textDiv = document.getElementById(tool + '-text');
+        // Copy LinkedIn Text to Clipboard
+        function copyLinkedInText() {
+            const textDiv = document.getElementById('linkedin-text');
             const copyBtn = event.target;
             
-            navigator.clipboard.writeText(textDiv.innerText).then(() => {
+            const textToCopy = textDiv.innerText || textDiv.textContent;
+            
+            if (!textToCopy || textToCopy === 'Extracting...') {
+                alert('Please extract a post first');
+                return;
+            }
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = textToCopy;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
                 copyBtn.textContent = 'Copied!';
                 copyBtn.classList.add('copied');
                 
