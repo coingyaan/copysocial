@@ -95,7 +95,6 @@
             min-height: 100vh;
         }
         
-        /* Header */
         header {
             background: var(--white);
             padding: 1rem 0;
@@ -143,7 +142,6 @@
             color: var(--primary);
         }
         
-        /* Hero Section */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
@@ -175,7 +173,6 @@
             margin-right: auto;
         }
         
-        /* Tool Selector */
         .tool-selector {
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -213,7 +210,6 @@
             background: var(--light-gray);
         }
         
-        /* Main Tool Container */
         .tool-container {
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -354,7 +350,6 @@
             line-height: 1.6;
         }
         
-        /* Features Section */
         .features {
             max-width: 1200px;
             margin: 4rem auto;
@@ -403,7 +398,6 @@
             line-height: 1.6;
         }
         
-        /* Footer */
         footer {
             background: var(--dark);
             color: var(--white);
@@ -446,17 +440,6 @@
             color: #94A3B8;
         }
         
-        .coming-soon {
-            background: #FEF3C7;
-            color: #92400E;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -485,7 +468,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <a href="/" class="logo">
@@ -499,13 +481,11 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Extract Text from <span class="gradient-text">LinkedIn Posts & Twitter Threads</span></h1>
         <p class="subtitle">Free tool to copy and save text from social media posts instantly. Perfect for content creators, recruiters, and marketers. No login required.</p>
     </section>
 
-    <!-- Tool Selector -->
     <div class="tool-selector">
         <button class="tool-btn active" onclick="switchTool('linkedin')">
             <span>📘</span> LinkedIn Post
@@ -515,9 +495,7 @@
         </button>
     </div>
 
-    <!-- Main Tool Container -->
     <div class="tool-container">
-        <!-- LinkedIn Tool -->
         <div id="linkedin-tool" class="tool-section active">
             <h2>Copy LinkedIn Post Text</h2>
             <div class="input-group">
@@ -536,7 +514,6 @@
             </div>
         </div>
 
-        <!-- Twitter Tool -->
         <div id="twitter-tool" class="tool-section">
             <h2>Extract Twitter/X Thread</h2>
             <div class="input-group">
@@ -544,19 +521,18 @@
                 <input type="text" id="twitter-url" placeholder="https://twitter.com/user/status/..." />
                 <p class="example-text">Example: https://twitter.com/username/status/1234567890 or https://x.com/username/status/1234567890</p>
             </div>
-            <button class="btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
-                Extract Thread
-            </button>
+            <button class="btn-primary" onclick="extractTwitterThread()">Extract Thread</button>
             
-            <span class="coming-soon">🚧 Coming Soon</span>
-            
-            <p style="margin-top: 1rem; color: var(--gray); font-size: 0.95rem;">
-                Twitter/X thread extraction is currently in development. Subscribe to our blog for updates!
-            </p>
+            <div id="twitter-result" class="result-box">
+                <div class="result-header">
+                    <span class="result-label">Extracted Thread:</span>
+                    <button class="copy-btn" onclick="copyTwitterText()">Copy All</button>
+                </div>
+                <div id="twitter-text" class="extracted-text"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Features Section -->
     <section class="features">
         <div style="text-align: center; margin-bottom: 3rem;">
             <h2 style="font-size: 2.5rem;">Why Use CopySocial?</h2>
@@ -567,13 +543,13 @@
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3 class="feature-title">Instant Extraction</h3>
-                <p class="feature-desc">Copy text from LinkedIn posts in seconds. Just paste the URL and click extract.</p>
+                <p class="feature-desc">Copy text from LinkedIn posts and Twitter threads in seconds. Just paste the URL and click extract.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
                 <h3 class="feature-title">No Login Required</h3>
-                <p class="feature-desc">Works without any registration or LinkedIn login. Your privacy is protected.</p>
+                <p class="feature-desc">Works without any registration or LinkedIn/Twitter login. Your privacy is protected.</p>
             </div>
             
             <div class="feature-card">
@@ -602,7 +578,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -613,7 +588,7 @@
             <div class="footer-section">
                 <h3>Tools</h3>
                 <a href="/">LinkedIn Post Copier</a>
-                <a href="/">Twitter Thread Reader (Soon)</a>
+                <a href="/">Twitter Thread Reader</a>
                 <a href="/blog">How-To Guides</a>
             </div>
             
@@ -638,22 +613,18 @@
     </footer>
 
     <script>
-        // Switch between tools
         function switchTool(tool) {
-            // Update buttons
             document.querySelectorAll('.tool-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.closest('.tool-btn').classList.add('active');
             
-            // Update tool sections
             document.querySelectorAll('.tool-section').forEach(section => {
                 section.classList.remove('active');
             });
             document.getElementById(tool + '-tool').classList.add('active');
         }
 
-        // LinkedIn Post Extraction (YOUR WORKING CODE)
         async function extractLinkedInPost() {
             const url = document.getElementById('linkedin-url').value.trim();
             const resultBox = document.getElementById('linkedin-result');
@@ -664,7 +635,6 @@
                 return;
             }
             
-            // Show loading
             textDiv.innerHTML = 'Extracting...';
             resultBox.classList.add('show');
             
@@ -681,7 +651,6 @@
             }
         }
 
-        // Copy LinkedIn Text to Clipboard
         function copyLinkedInText() {
             const textDiv = document.getElementById('linkedin-text');
             const copyBtn = event.target;
@@ -702,7 +671,6 @@
                     copyBtn.classList.remove('copied');
                 }, 2000);
             }).catch(() => {
-                // Fallback for older browsers
                 const textarea = document.createElement('textarea');
                 textarea.value = textToCopy;
                 document.body.appendChild(textarea);
@@ -715,6 +683,81 @@
                 
                 setTimeout(() => {
                     copyBtn.textContent = 'Copy';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        async function extractTwitterThread() {
+            const url = document.getElementById('twitter-url').value.trim();
+            const resultBox = document.getElementById('twitter-result');
+            const textDiv = document.getElementById('twitter-text');
+            
+            if (!url) {
+                alert('Please paste a Twitter/X URL');
+                return;
+            }
+            
+            if (!url.includes('twitter.com') && !url.includes('x.com')) {
+                alert('Please enter a valid Twitter/X URL');
+                return;
+            }
+            
+            textDiv.innerHTML = 'Extracting thread...';
+            resultBox.classList.add('show');
+            
+            try {
+                const res = await fetch(
+                    "https://twitter-thread-extractor.igadgetgyaan.workers.dev/?url=" + encodeURIComponent(url)
+                );
+                
+                const data = await res.json();
+                
+                if (data.error) {
+                    textDiv.innerHTML = data.error;
+                } else if (data.content) {
+                    textDiv.innerHTML = data.content;
+                } else {
+                    textDiv.innerHTML = 'Could not extract tweet content. The tweet might be private, deleted, or Twitter changed their structure.';
+                }
+                
+            } catch (err) {
+                textDiv.innerHTML = 'Something went wrong. Please try again.';
+            }
+        }
+
+        function copyTwitterText() {
+            const textDiv = document.getElementById('twitter-text');
+            const copyBtn = event.target;
+            
+            const textToCopy = textDiv.innerText || textDiv.textContent;
+            
+            if (!textToCopy || textToCopy === 'Extracting thread...') {
+                alert('Please extract a thread first');
+                return;
+            }
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy All';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = textToCopy;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy All';
                     copyBtn.classList.remove('copied');
                 }, 2000);
             });
