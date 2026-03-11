@@ -1,0 +1,20 @@
+# CopySocial robots.txt
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl everything
+Disallow: /assets/
+
+# Sitemap location
+Sitemap: https://copysocial.co/sitemap.xml
+
+# Common crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
