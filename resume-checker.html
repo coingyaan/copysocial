@@ -225,6 +225,10 @@
 
     <div class="upload-section">
         <div class="upload-container">
+            <p style="text-align: center; color: var(--gray); font-size: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: var(--light-gray); border-radius: 8px; line-height: 1.6;">
+                💡 This tool provides a basic ATS format estimate. For comprehensive professional analysis, use our expert service.
+            </p>
+            
             <div class="upload-area" id="uploadArea">
                 <div class="upload-icon">📄</div>
                 <div class="upload-text">Drop your resume here</div>
@@ -671,8 +675,8 @@
             e.preventDefault();
             const email = document.getElementById('emailInput').value;
             
-            // Generate random score for demo
-            const score = Math.floor(Math.random() * 30) + 65; // 65-95
+            // Generate random score for demo (65-85 to encourage service upgrade)
+            const score = Math.floor(Math.random() * 21) + 65; // 65-85
             
             // Send email to Google Sheets
             try {
