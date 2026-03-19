@@ -315,39 +315,39 @@
                 </div>
             </div>
 
-            <div class="feedback-card" style="background: linear-gradient(135deg, #F0FDFA 0%, #ECFEFF 100%); border: 2px solid var(--primary);">
-                <div style="text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-                    <h3 class="feedback-title" style="color: var(--primary);">Ready to Get More Interviews?</h3>
-                    <p style="font-size: 1.1rem; color: var(--dark); margin-bottom: 1.5rem; line-height: 1.7;">
-                        Your free report shows you what to fix. Want an expert to rewrite your entire resume? Get a professionally crafted ATS-optimized resume that lands interviews.
-                    </p>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; text-align: left;">
-                        <div>
-                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">✅</div>
-                            <strong style="color: var(--dark);">ATS-Optimized</strong>
-                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 0.25rem;">Passes all screening systems</p>
+            <!-- Professional Resume Service CTA (Compact Horizontal) -->
+            <div style="background: linear-gradient(135deg, #F0FDFA 0%, #ECFEFF 100%); border: 2px solid var(--primary); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="font-size: 3rem;">🚀</div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3 style="color: var(--primary); font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem;">Ready to Get More Interviews?</h3>
+                        <div style="display: flex; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                            <span style="color: var(--dark); font-size: 0.9rem;">✅ ATS-Optimized</span>
+                            <span style="color: var(--dark); font-size: 0.9rem;">💼 7+ Years Hiring Experience</span>
+                            <span style="color: var(--dark); font-size: 0.9rem;">⚡ Fast Delivery</span>
                         </div>
-                        <div>
-                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💼</div>
-                            <strong style="color: var(--dark);">7+ Years Experience</strong>
-                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 0.25rem;">Tech recruiting expertise</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
-                            <strong style="color: var(--dark);">Fast Delivery</strong>
-                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 0.25rem;">Get results quickly</p>
-                        </div>
+                        <a href="https://www.fiverr.com/resumebymk/write-an-ats-optimized-resume-that-gets-you-interviews" target="_blank" style="display: inline-block; background: var(--primary); color: var(--white); padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: background 0.3s;">
+                            Get Professional Resume →
+                        </a>
                     </div>
+                </div>
+            </div>
 
-                    <a href="https://www.fiverr.com/resumebymk/write-an-ats-optimized-resume-that-gets-you-interviews" target="_blank" style="display: inline-block; background: var(--primary); color: var(--white); padding: 1.25rem 3rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: background 0.3s; margin-top: 1rem;">
-                        Get Professional Resume on Fiverr →
-                    </a>
-                    
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 1.5rem;">
-                        ⭐ Trusted by hundreds of job seekers • Interview-ready resumes
-                    </p>
+            <!-- LinkedIn Profile Optimization CTA (Compact Horizontal) -->
+            <div style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border: 2px solid var(--secondary); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div style="font-size: 3rem;">💼</div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3 style="color: var(--secondary); font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem;">Want to Optimize Your LinkedIn Profile?</h3>
+                        <div style="display: flex; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                            <span style="color: var(--dark); font-size: 0.9rem;">✅ SEO-Optimized</span>
+                            <span style="color: var(--dark); font-size: 0.9rem;">🎯 Attract Recruiters</span>
+                            <span style="color: var(--dark); font-size: 0.9rem;">⚡ Professional Headlines</span>
+                        </div>
+                        <a href="https://www.fiverr.com/resumebymk/optimize-your-linkedin-profile-to-attract-recruiters" target="_blank" style="display: inline-block; background: var(--secondary); color: var(--white); padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: background 0.3s;">
+                            Optimize LinkedIn Profile →
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -673,15 +673,35 @@
         const scoreNumber = document.getElementById('scoreNumber');
         const scoreBadge = document.getElementById('scoreBadge');
         
-        emailForm.addEventListener('submit', (e) => {
+        emailForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('emailInput').value;
             
-            // Here you would send the email to your backend
-            console.log('Email submitted:', email);
-            
             // Generate random score for demo
             const score = Math.floor(Math.random() * 30) + 65; // 65-95
+            
+            // Send email to Google Sheets
+            try {
+                const response = await fetch('YOUR_GOOGLE_SCRIPT_URL_HERE', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        score: score,
+                        source: 'Resume Checker'
+                    })
+                });
+                
+                console.log('Email saved to Google Sheets:', email);
+            } catch (error) {
+                console.error('Error saving email:', error);
+                // Continue showing results even if saving fails
+            }
+            
+            // Update score display
             scoreNumber.textContent = score;
             
             if (score >= 85) {
