@@ -85,11 +85,53 @@
         .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem;
             border-top: 1px solid #334155; text-align: center; color: #94A3B8; }
         @media (max-width: 768px) { 
-            h1 { font-size: 2rem; } 
-            nav { gap: 1rem; }
+            h1 { font-size: 2rem; }
+            
+            header {
+                padding: 0.75rem 0;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            
+            .logo img {
+                height: 32px;
+            }
+            
+            nav { 
+                gap: 0.5rem;
+                font-size: 0.875rem;
+            }
+            
+            nav a {
+                padding: 0.25rem 0.5rem;
+            }
+            
             .blog-card { flex-direction: column; height: auto; }
             .blog-card-image { width: 100%; min-width: 100%; height: 180px; font-size: 3rem; }
             .blog-card-content { padding: 1.5rem; }
+        }
+
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 0.75rem;
+            }
+            
+            .logo img {
+                height: 28px;
+            }
+            
+            nav {
+                gap: 0.35rem;
+                font-size: 0.8rem;
+            }
+            
+            nav a {
+                padding: 0.2rem 0.35rem;
+            }
         }
     </style>
 </head>
@@ -100,6 +142,7 @@
                 <img src="/assets/images/logo/header-800x200-transparent.png" alt="CopySocial Logo">
             </a>
             <nav>
+                <a href="/resume-checker">Resume Checker</a>
                 <a href="/blog" class="active">Blog</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
@@ -114,7 +157,39 @@
         </div>
 
         <div class="blog-grid">
-            <!-- Blog Post 2 - Twitter Thread (NEWEST) -->
+            <!-- Blog Post 4 - ATS Resume Keywords (NEWEST) -->
+            <a href="/blog/ats-resume-keywords-2026-guide" class="blog-card">
+                <div class="blog-card-image">📄</div>
+                <div class="blog-card-content">
+                    <div>
+                        <div class="blog-card-meta">
+                            <span>📅 March 2026</span>
+                            <span>⏱️ 14 min read</span>
+                        </div>
+                        <h2 class="blog-card-title">ATS Resume Keywords That Actually Work in 2026: Complete Guide by Industry</h2>
+                        <p class="blog-card-excerpt">Master ATS resume keywords with this complete guide. Learn which keywords recruiters search for, how to find them and where to place them for maximum interview callbacks.</p>
+                    </div>
+                    <span class="read-more">Read More →</span>
+                </div>
+            </a>
+
+            <!-- Blog Post 3 - LinkedIn Profile Optimization -->
+            <a href="/blog/linkedin-profile-optimization-2026-tips" class="blog-card">
+                <div class="blog-card-image">💼</div>
+                <div class="blog-card-content">
+                    <div>
+                        <div class="blog-card-meta">
+                            <span>📅 March 2026</span>
+                            <span>⏱️ 12 min read</span>
+                        </div>
+                        <h2 class="blog-card-title">LinkedIn Profile Optimization in 2026: 12 Proven Tips That Actually Get You Hired</h2>
+                        <p class="blog-card-excerpt">Master LinkedIn profile optimization with these 12 proven strategies. Learn how to optimize your profile for recruiters, increase visibility and get hired faster.</p>
+                    </div>
+                    <span class="read-more">Read More →</span>
+                </div>
+            </a>
+        
+            <!-- Blog Post 2 - Twitter Thread -->
             <a href="/blog/how-to-copy-text-from-twitter-thread" class="blog-card">
                 <div class="blog-card-image">🐦</div>
                 <div class="blog-card-content">
