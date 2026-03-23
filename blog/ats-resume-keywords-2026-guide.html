@@ -31,6 +31,30 @@
         nav a { text-decoration: none; color: var(--gray); font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: var(--primary); }
         article { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+        
+        .breadcrumb {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--gray);
+        }
+        
         .article-header { background: var(--white); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 2rem; }
         h1 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
         .meta { color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem; }
@@ -117,8 +141,15 @@
     </header>
     <article>
         <div class="article-header">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="/blog">Blog</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>ATS Resume Keywords That Actually Work in 2026</span>
+            </div>
             <h1>ATS Resume Keywords That Actually Work in 2026: Complete Guide by Industry</h1>
-            <div class="meta">Published March 2026 • 14 min read</div>
+            <div class="meta">📅 March 2026 • ⏱️ 14 min read • ✍️ Monesh Kumar</div>
             <p class="article-intro">Over 97% of Fortune 500 companies use Applicant Tracking Systems to filter resumes before human recruiters see them. Without the right keywords, your resume gets rejected automatically regardless of qualifications. This guide reveals which keywords matter for your industry, how to find them in job descriptions and where to place them for maximum ATS compatibility.</p>
         </div>
         <div class="content">
