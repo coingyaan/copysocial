@@ -47,6 +47,30 @@
         nav a:hover { color: var(--primary); }
         
         article { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; }
+        
+        .breadcrumb {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--gray);
+        }
+        
         .article-header { background: var(--white); padding: 3rem; border-radius: 16px;
             box-shadow: var(--shadow); margin-bottom: 2rem; }
         h1 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; }
@@ -157,8 +181,15 @@
 
     <article>
         <div class="article-header">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="/blog">Blog</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>LinkedIn Profile Optimization in 2026</span>
+            </div>
             <h1>LinkedIn Profile Optimization in 2026: 12 Proven Tips That Actually Get You Hired</h1>
-            <div class="meta">Published March 2026 • 12 min read</div>
+            <div class="meta">📅 March 2026 • ⏱️ 12 min read • ✍️ Monesh Kumar</div>
             <p class="article-intro">Your LinkedIn profile is your digital first impression. In 2026, with over 1 billion professionals on the platform and AI-powered algorithms filtering candidates, having an optimized profile isn't optional—it's essential. This comprehensive guide reveals the exact strategies that successful job seekers and professionals use to stand out, get noticed by recruiters and land better opportunities.</p>
         </div>
 
