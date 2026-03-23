@@ -177,6 +177,55 @@
             margin-right: auto;
         }
         
+        .blog-ticker {
+            background: linear-gradient(135deg, #F0FDFA 0%, #ECFEFF 100%);
+            border-top: 2px solid var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding: 1rem 0;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-ticker-wrapper {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .blog-ticker-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 3rem;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .blog-ticker-item:hover {
+            color: var(--primary);
+        }
+        
+        .blog-ticker-icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+        
+        .blog-ticker-label {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.75rem;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
         .tool-selector {
             max-width: 800px;
             margin: 0 auto 3rem;
@@ -453,6 +502,19 @@
                 font-size: 1rem;
             }
             
+            .blog-ticker {
+                padding: 0.75rem 0;
+            }
+            
+            .blog-ticker-item {
+                font-size: 0.9rem;
+                margin-right: 2rem;
+            }
+            
+            .blog-ticker-icon {
+                font-size: 1rem;
+            }
+            
             .tool-container {
                 padding: 2rem 1.5rem;
             }
@@ -465,8 +527,46 @@
                 width: 100%;
             }
             
-            nav {
+            header {
+                padding: 0.75rem 0;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
                 gap: 1rem;
+            }
+            
+            .logo img {
+                height: 32px;
+            }
+            
+            nav {
+                gap: 0.5rem;
+                font-size: 0.875rem;
+            }
+            
+            nav a {
+                padding: 0.25rem 0.5rem;
+            }
+        }
+
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 0.75rem;
+            }
+            
+            .logo img {
+                height: 28px;
+            }
+            
+            nav {
+                gap: 0.35rem;
+                font-size: 0.8rem;
+            }
+            
+            nav a {
+                padding: 0.2rem 0.35rem;
             }
         }
     </style>
@@ -490,6 +590,49 @@
         <h1>Extract Text from <span class="gradient-text">LinkedIn Posts & Twitter Threads</span></h1>
         <p class="subtitle">Free tool to copy and save text from social media posts instantly. Perfect for content creators, recruiters, and marketers. No login required.</p>
     </section>
+
+    <!-- Blog Ticker -->
+    <div class="blog-ticker">
+        <div class="blog-ticker-wrapper">
+            <a href="/blog/ats-resume-keywords-2026-guide" class="blog-ticker-item">
+                <span class="blog-ticker-icon">📄</span>
+                <span class="blog-ticker-label">NEW</span>
+                <span>ATS Resume Keywords That Actually Work in 2026</span>
+            </a>
+            <a href="/blog/linkedin-profile-optimization-2026-tips" class="blog-ticker-item">
+                <span class="blog-ticker-icon">💼</span>
+                <span class="blog-ticker-label">NEW</span>
+                <span>LinkedIn Profile Optimization: 12 Proven Tips for 2026</span>
+            </a>
+            <a href="/blog/how-to-copy-text-from-twitter-thread" class="blog-ticker-item">
+                <span class="blog-ticker-icon">🐦</span>
+                <span>How to Copy Text from Twitter Thread (3 Easy Methods)</span>
+            </a>
+            <a href="/blog/how-to-copy-text-from-linkedin-mobile-app" class="blog-ticker-item">
+                <span class="blog-ticker-icon">📱</span>
+                <span>How to Copy Text from LinkedIn Mobile App</span>
+            </a>
+            <!-- Duplicate for seamless scroll -->
+            <a href="/blog/ats-resume-keywords-2026-guide" class="blog-ticker-item">
+                <span class="blog-ticker-icon">📄</span>
+                <span class="blog-ticker-label">NEW</span>
+                <span>ATS Resume Keywords That Actually Work in 2026</span>
+            </a>
+            <a href="/blog/linkedin-profile-optimization-2026-tips" class="blog-ticker-item">
+                <span class="blog-ticker-icon">💼</span>
+                <span class="blog-ticker-label">NEW</span>
+                <span>LinkedIn Profile Optimization: 12 Proven Tips for 2026</span>
+            </a>
+            <a href="/blog/how-to-copy-text-from-twitter-thread" class="blog-ticker-item">
+                <span class="blog-ticker-icon">🐦</span>
+                <span>How to Copy Text from Twitter Thread (3 Easy Methods)</span>
+            </a>
+            <a href="/blog/how-to-copy-text-from-linkedin-mobile-app" class="blog-ticker-item">
+                <span class="blog-ticker-icon">📱</span>
+                <span>How to Copy Text from LinkedIn Mobile App</span>
+            </a>
+        </div>
+    </div>
 
     <div class="tool-selector">
         <button class="tool-btn active" onclick="switchTool('linkedin')">
