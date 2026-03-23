@@ -91,9 +91,52 @@
             text-align: center; color: #94A3B8; }
         
         @media (max-width: 768px) {
+
+            header {
+                padding: 0.75rem 0;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+            
+            .logo img {
+                height: 32px;
+            }
+            
+            nav { 
+                gap: 0.5rem;
+                font-size: 0.875rem;
+            }
+            
+            nav a {
+                padding: 0.25rem 0.5rem;
+            }
+
             h1 { font-size: 2rem; }
             h2 { font-size: 1.5rem; }
             .article-header, .content { padding: 2rem 1.5rem; }
+        }
+
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 0.75rem;
+            }
+            
+            .logo img {
+                height: 28px;
+            }
+            
+            nav {
+                gap: 0.35rem;
+                font-size: 0.8rem;
+            }
+            
+            nav a {
+                padding: 0.2rem 0.35rem;
+            }
         }
     </style>
 </head>
