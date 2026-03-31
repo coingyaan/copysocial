@@ -257,26 +257,42 @@
         </div>
     </section>
 
-    <!-- Featured Blog Post -->
+    <!-- Featured Blog Posts -->
     <section class="blog-section">
         <div class="section-header">
             <h2 class="section-title">Latest from Our Blog</h2>
             <p class="section-subtitle">Tips and insights to help you land your dream job</p>
         </div>
 
-        <div class="blog-featured">
-            <img src="/assets/images/blog/ats-resume-tips.jpg" alt="ATS Resume Tips" class="blog-image" onerror="this.style.display='none'">
-            <div class="blog-content">
-                <span class="blog-category">Resume Tips</span>
-                <h3 class="blog-title">How to Make Your Resume ATS-Friendly in 2026</h3>
-                <p class="blog-excerpt">75% of resumes never reach human recruiters. Learn the exact formatting rules and keywords that help your resume pass ATS screening systems used by Fortune 500 companies.</p>
-                <div class="blog-meta">
-                    <span>📅 March 20, 2026</span>
-                    <span>⏱️ 5 min read</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+            <!-- Blog Card 1 -->
+            <div style="background: var(--white); border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; transition: transform 0.3s;">
+                <img src="/assets/images/blog/ats-resume-tips.jpg" alt="ATS Resume Tips" style="width: 100%; height: 250px; object-fit: cover;" onerror="this.style.display='none'">
+                <div style="padding: 2rem;">
+                    <span class="blog-category">Resume Tips</span>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem; line-height: 1.3;">How to Make Your Resume ATS-Friendly in 2026</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.6;">75% of resumes never reach human recruiters. Learn the exact formatting rules and keywords that help your resume pass ATS screening.</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; color: var(--gray); font-size: 0.85rem; margin-bottom: 1rem;">
+                        <span>📅 March 20, 2026</span>
+                        <span>⏱️ 5 min read</span>
+                    </div>
+                    <a href="/blog/ats-resume-tips-2026" class="read-more">Read Full Article →</a>
                 </div>
-                <a href="/blog/ats-resume-tips-2026" class="read-more">
-                    Read Full Article →
-                </a>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div style="background: var(--white); border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; transition: transform 0.3s;">
+                <img src="/assets/images/blog/linkedin-copy-mobile.jpg" alt="LinkedIn Mobile Tips" style="width: 100%; height: 250px; object-fit: cover;" onerror="this.style.display='none'">
+                <div style="padding: 2rem;">
+                    <span class="blog-category">LinkedIn Tips</span>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem; line-height: 1.3;">How to Copy Text from LinkedIn Mobile App</h3>
+                    <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.6;">Struggling to copy LinkedIn posts on mobile? Learn the simple trick to extract any LinkedIn post text without browser extensions.</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; color: var(--gray); font-size: 0.85rem; margin-bottom: 1rem;">
+                        <span>📅 March 15, 2026</span>
+                        <span>⏱️ 3 min read</span>
+                    </div>
+                    <a href="/blog/copy-linkedin-post-mobile" class="read-more">Read Full Article →</a>
+                </div>
             </div>
         </div>
     </section>
