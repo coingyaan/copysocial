@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -319,9 +321,6 @@
             text-align: center;
             color: #94A3B8;
         }
-        
-        @media (max-width: 768px) {
-            header { padding: 0.75rem 0; }
             .header-content { padding: 0 1rem; gap: 1rem; }
             .logo img { height: 32px; }
             nav { gap: 0.5rem; font-size: 0.875rem; }
@@ -356,9 +355,6 @@
             .content-card { padding: 2rem 1.5rem; }
             .stats-grid { grid-template-columns: 1fr; }
         }
-        
-        @media (max-width: 480px) {
-            .header-content { padding: 0 0.75rem; }
             .logo img { height: 28px; }
         }
         .dropdown-menu {
@@ -407,7 +403,6 @@
         .dropdown-item-badge { display: inline-block; background: #FEF3C7; color: #92400E;
             padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700;
             margin-left: 0.5rem; }
-
     
         /* Header */
         header { background: var(--white); padding: 1rem 0; box-shadow: var(--shadow);
@@ -493,9 +488,11 @@
             .mobile-menu-toggle { display: none; }
         }
     </style>
+
+
 </head>
 <body>
-            <header>
+    <header>
         <div class="header-content">
             <a href="/" class="logo">
                 <img src="/assets/images/logo/header-800x200-transparent.png" alt="CopySocial Logo">
@@ -542,6 +539,26 @@
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-tools-section">
             <div class="mobile-tools-header">Tools</div>
+            <a href="/resume-checker" class="mobile-tool-item">
+                <span>Resume Checker</span>
+            </a>
+            <a href="/linkedin-post-copier" class="mobile-tool-item">
+                <span>LinkedIn Post Copier</span>
+            </a>
+            <a href="/twitter-thread-reader" class="mobile-tool-item">
+                <span>Twitter Thread Reader</span>
+            </a>
+            <a href="#waitlist" class="mobile-tool-item">
+                <span>Resume Optimizer <span class="dropdown-item-badge">SOON</span></span>
+            </a>
+        </div>
+        <div class="mobile-nav-item">
+            <a href="/blog" class="mobile-nav-link">Blog</a>
+        </div>
+        <div class="mobile-nav-item">
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -570,47 +587,6 @@
             });
         });
     </script>
-            <a href="/resume-checker" class="mobile-tool-item"><span>Resume Checker</span></a>
-            <a href="/linkedin-post-copier" class="mobile-tool-item"><span>LinkedIn Post Copier</span></a>
-            <a href="/twitter-thread-reader" class="mobile-tool-item"><span>Twitter Thread Reader</span></a>
-            <a href="#waitlist" class="mobile-tool-item"><span>Resume Optimizer <span class="dropdown-item-badge">SOON</span></span></a>
-        </div>
-        <div class="mobile-nav-item"><a href="/blog" class="mobile-nav-link">Blog</a></div>
-        <div class="mobile-nav-item"><a href="/about" class="mobile-nav-link active">About</a></div>
-        <div class="mobile-nav-item"><a href="/contact" class="mobile-nav-link">Contact</a></div>
-    </div>
-            <a href="/resume-checker" class="mobile-tool-item"><span>Resume Checker</span></a>
-            <a href="/linkedin-post-copier" class="mobile-tool-item"><span>LinkedIn Post Copier</span></a>
-            <a href="/twitter-thread-reader" class="mobile-tool-item"><span>Twitter Thread Reader</span></a>
-            <a href="#waitlist" class="mobile-tool-item"><span>Resume Optimizer <span class="dropdown-item-badge">SOON</span></span></a>
-        </div>
-        <div class="mobile-nav-item"><a class="mobile-nav-link" href="/blog">Blog</a></div>
-        <div class="mobile-nav-item"><a class="mobile-nav-link" href="/about" class="active">About</a></div>
-        <div class="mobile-nav-item"><a class="mobile-nav-link" href="/contact">Contact</a></div>
-    </div>
-            <a href="/resume-checker" class="mobile-tool-item">
-                <span>Resume Checker</span>
-            </a>
-            <a href="/linkedin-post-copier" class="mobile-tool-item">
-                <span>LinkedIn Post Copier</span>
-            </a>
-            <a href="/twitter-thread-reader" class="mobile-tool-item">
-                <span>Twitter Thread Reader</span>
-            </a>
-            <a href="#waitlist" class="mobile-tool-item">
-                <span>Resume Optimizer <span class="dropdown-item-badge">SOON</span></span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="/blog" class="mobile-nav-link">Blog</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="/about" class="mobile-nav-link">About</a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="/contact" class="mobile-nav-link">Contact</a>
-        </div>
-    </div>
 
     <div class="content-section">
         <div class="page-header">
@@ -711,58 +687,31 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>CopySocial</h3>
-                <p style="color: #94A3B8;">Free tools for job seekers and content creators.</p>
+                <p style="color: #94A3B8; margin-top: 0.5rem;">Free tools for content creators and job seekers</p>
             </div>
-            
-                                                                        <div class="footer-section">
+            <div class="footer-section">
                 <h3>Tools</h3>
                 <a href="/resume-checker">Resume Checker</a>
                 <a href="/linkedin-post-copier">LinkedIn Post Copier</a>
                 <a href="/twitter-thread-reader">Twitter Thread Reader</a>
             </div>
-            
             <div class="footer-section">
                 <h3>Company</h3>
-                <a href="/about">About Us</a>
-                <a href="/contact">Contact</a>
+                <a href="/about">About</a>
                 <a href="/blog">Blog</a>
+                <a href="/contact">Contact</a>
             </div>
-            
             <div class="footer-section">
                 <h3>Legal</h3>
                 <a href="/privacy-policy">Privacy Policy</a>
                 <a href="/disclaimer">Disclaimer</a>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <p>Built by <a href="https://www.linkedin.com/in/moneshkumar" target="_blank" style="color: var(--primary);">Monesh Kumar</a></p>
+            <p>Built by <a href="https://www.linkedin.com/in/moneshkumar" target="_blank" style="color: var(--primary); text-decoration: none;">Monesh Kumar</a></p>
             <p style="margin-top: 0.5rem;">&copy; 2026 CopySocial. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        const _mmToggle = document.getElementById('mobileMenuToggle');
-        const _mm = document.getElementById('mobileMenu');
-        const _mmo = document.getElementById('mobileMenuOverlay');
-        if (_mmToggle) {
-            _mmToggle.addEventListener('click', () => {
-                _mmToggle.classList.toggle('active');
-                _mm.classList.toggle('active');
-                _mmo.classList.toggle('active');
-            });
-            _mmo.addEventListener('click', () => {
-                _mmToggle.classList.remove('active');
-                _mm.classList.remove('active');
-                _mmo.classList.remove('active');
-            });
-            document.querySelectorAll('.mobile-tool-item, .mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    _mmToggle.classList.remove('active');
-                    _mm.classList.remove('active');
-                    _mmo.classList.remove('active');
-                });
-            });
-        }
-    </script>
+
 </body>
 </html>
