@@ -110,25 +110,29 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-subtitle { font-size: 1.35rem; color: var(--gray); margin-bottom: 2.5rem; }
         
-        /* Feature Cards Grid */
+        /* Feature Cards Grid — FIXED: flex column so CTA always aligns to bottom */
         .features-hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem; margin-bottom: 4rem; }
+            gap: 2rem; margin-bottom: 4rem; align-items: stretch; }
         .feature-hero-card { background: var(--white); padding: 2.5rem; border-radius: 16px; 
             box-shadow: var(--shadow-lg); transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid transparent; }
+            border: 2px solid transparent;
+            /* FIX: flex column so CTA button always sits at the bottom */
+            display: flex; flex-direction: column; }
         .feature-hero-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15); }
         .feature-hero-card.featured { border-color: var(--primary); }
         .feature-badge { display: inline-block; background: var(--primary); color: var(--white);
             padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
-            margin-bottom: 1rem; }
+            margin-bottom: 1rem; align-self: flex-start; }
         .feature-badge.orange { background: #F59E0B; }
         .feature-icon-large { font-size: 3.5rem; margin-bottom: 1rem; }
         .feature-hero-title { font-size: 1.75rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem; }
         .feature-hero-desc { color: var(--gray); font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.6; }
-        .feature-highlights { margin-bottom: 1.5rem; }
+        .feature-highlights { margin-bottom: 1.5rem; flex: 1; }
         .highlight-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;
             color: #334155; font-size: 0.95rem; }
         .highlight-icon { color: var(--primary); font-weight: 700; }
+        /* FIX: margin-top auto pushes button to bottom of card regardless of content length */
+        .feature-hero-card .cta-button { margin-top: auto; align-self: flex-start; }
         .cta-button { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--white); padding: 1rem 2rem; border-radius: 8px; text-decoration: none;
             font-weight: 700; font-size: 1.05rem; transition: transform 0.3s, box-shadow 0.3s; }
@@ -380,7 +384,7 @@
 
             <!-- Resume Optimizer (Coming Soon) -->
             <div class="feature-hero-card">
-                <span class="feature-badge">COMING SOON</span>
+                <span class="feature-badge orange">COMING SOON</span>
                 <div class="feature-icon-large">🚀</div>
                 <h2 class="feature-hero-title">Resume Optimizer</h2>
                 <p class="feature-hero-desc">Customize your resume for any job description. Get 2 free optimizations when we launch!</p>
