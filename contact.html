@@ -79,11 +79,12 @@
         .note{background:linear-gradient(135deg,#F0FDFA,#EFF6FF);border-left:4px solid var(--p);border-radius:10px;padding:1.25rem 1.5rem;margin-top:2rem;}
         .note p{color:var(--dark2);font-size:0.9rem;line-height:1.7;margin:0;}
 
+        @media(max-width:768px){.dnav{display:none;}.mob-btn{display:block;}.contact-card{flex-direction:column;text-align:center;}.cc-arrow{display:none;}}
+        @media(max-width:480px){}
         footer{background:var(--dark);color:var(--white);padding:4rem 1.5rem 2rem;}
         .fin{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
-        .fbrand{font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:.75rem;display:inline-block;}
-        .fbrand em{color:var(--p);font-style:normal;}
-        .fbrand-p{font-size:.85rem;color:#94A3B8;line-height:1.7;max-width:250px;}
+        
+        
         .fcol h4{font-family:'Sora',sans-serif;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white);margin-bottom:1rem;}
         .fcol a{display:block;color:#94A3B8;text-decoration:none;font-size:.85rem;margin-bottom:.45rem;transition:color .2s;}
         .fcol a:hover{color:var(--p);}
@@ -91,9 +92,11 @@
         .fbot{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid #1E293B;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:#475569;}
         .fbot a{color:#94A3B8;text-decoration:none;}
         .fbot a:hover{color:var(--p);}
-
-        @media(max-width:768px){.dnav{display:none;}.mob-btn{display:block;}.contact-card{flex-direction:column;text-align:center;}.cc-arrow{display:none;}.fin{grid-template-columns:1fr 1fr;gap:2rem;}.fbot{flex-direction:column;gap:.5rem;text-align:center;}}
-        @media(max-width:480px){.fin{grid-template-columns:1fr;}}
+    
+        /* Footer brand text styling */
+        .fbrand .logo{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none;display:inline-block;margin-bottom:.75rem;}
+        .fbrand .logo em{color:var(--p);font-style:normal;}
+        .fbrand p{font-size:.85rem;color:#94A3B8;line-height:1.7;max-width:250px;margin-bottom:1rem;}
     </style>
 </head>
 <body>
@@ -134,15 +137,14 @@
 
 <div class="wrap">
 
-    <a href="mailto:hello@copysocial.co" class="contact-card">
+    <div class="contact-card">
         <div class="cc-icon teal">📧</div>
         <div class="cc-text">
             <div class="cc-label">Email</div>
-            <div class="cc-value">hello@copysocial.co</div>
+            <div class="cc-value">hello&#64;copysocial&#46;co</div>
             <div class="cc-desc">For questions, feedback, bug reports and everything else. We reply within 24 hours.</div>
         </div>
-        <div class="cc-arrow">→</div>
-    </a>
+    </div>
 
     <a href="https://www.linkedin.com/in/moneshkumar" target="_blank" rel="noopener noreferrer" class="contact-card">
         <div class="cc-icon blue">💼</div>
@@ -189,9 +191,3 @@
     </div>
     <div class="fbot">
         <span>&copy; 2026 CopySocial. All rights reserved.</span>
-        <span>Built by <a href="https://www.linkedin.com/in/moneshkumar">Monesh Kumar</a></span>
-    </div>
-</footer>
-
-</body>
-</html>
